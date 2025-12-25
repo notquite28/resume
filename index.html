@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">      
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!--You can add your name and affiliation below to personalise -->
+        <meta property="og:title" content="Resume - Arnav Panigrahi"/>
+        
+        <!--You can add your keywords to personalise-->
+        <meta property="og:description" content="Education, Experience, Projects etc."/>
+        
+        <meta property="og:image" content="https://dummyimage.com/100x100/000/fff&text=CV" />
+        <title>Resume - Arnav Panigrahi</title>
+        
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        
+        <style>
+            :root {
+                /* Dracula palette */
+                --color-surface: #282a36;      /* background */
+                --color-surface-2: #44475a;    /* current line */
+                --color-text: #f8f8f2;         /* foreground */
+                --color-comment: #6272a4;      /* comments */
+                --color-cyan: #8be9fd;
+                --color-green: #50fa7b;
+                --color-orange: #ffb86c;
+                --color-pink: #ff79c6;
+                --color-purple: #bd93f9;
+                --color-red: #ff5555;
+                --color-yellow: #f1fa8c;
+
+                /* Brand tokens mapped to Dracula */
+                --color-brand-50: #44475a;
+                --color-brand-400: var(--color-purple);
+                --color-brand-500: var(--color-purple);
+                --color-accent-500: var(--color-pink);
+                --color-mint-500: var(--color-cyan);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+                background: var(--color-surface);
+                color: var(--color-text);
+                min-height: 100vh;
+                overflow-x: hidden;
+                position: relative;
+            }
+
+            /* Decorative gradient overlay */
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                z-index: 0;
+                pointer-events: none;
+                backdrop-filter: blur(8px) saturate(1.05);
+                background:
+                    linear-gradient(0deg, color-mix(in oklab, black 60%, transparent), color-mix(in oklab, black 55%, transparent)),
+                    radial-gradient(900px 500px at 15% 10%, color-mix(in oklab, var(--color-brand-500) 25%, transparent), transparent 60%),
+                    radial-gradient(700px 400px at 85% 15%, color-mix(in oklab, var(--color-accent-500) 20%, transparent), transparent 60%),
+                    radial-gradient(1000px 600px at 50% 85%, color-mix(in oklab, var(--color-mint-500) 18%, transparent), transparent 60%);
+            }
+
+            .container {
+                position: relative;
+                z-index: 1;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 2rem;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .resume-container {
+                background: transparent;
+                border-radius: 1rem;
+                overflow: hidden;
+                position: relative;
+                border: 1px solid rgba(255,255,255,0.28);
+                color: rgba(255,255,255,0.95);
+            }
+
+            .glass-filter,
+            .glass-overlay,
+            .glass-specular {
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                pointer-events: none;
+            }
+
+            .glass-filter {
+                z-index: 0;
+                backdrop-filter: blur(10px) saturate(1.15);
+                -webkit-backdrop-filter: blur(10px) saturate(1.15);
+            }
+
+            .glass-overlay {
+                z-index: 1;
+                background:
+                    linear-gradient(180deg, color-mix(in oklab, white 10%, transparent), color-mix(in oklab, white 6%, transparent));
+            }
+
+            .glass-specular {
+                z-index: 2;
+                box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), inset 0 0 5px rgba(255,255,255,0.35);
+            }
+
+            .glass-content {
+                position: relative;
+                z-index: 3;
+                padding: 2rem;
+            }
+
+            h1 {
+                background: linear-gradient(90deg, var(--color-brand-400), var(--color-accent-500));
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                text-align: center;
+                margin-bottom: 2rem;
+                font-size: 2.5rem;
+                font-weight: bold;
+                text-shadow: 0 2px 8px rgba(0,0,0,.35);
+            }
+
+            .resume-option {
+                display: block;
+                margin: 1.5rem 0;
+                padding: 1.5rem;
+                background: transparent;
+                border: 1px solid rgba(255,255,255,0.28);
+                border-radius: 1rem;
+                text-decoration: none;
+                color: var(--color-text);
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(10px) saturate(1.15);
+                -webkit-backdrop-filter: blur(10px) saturate(1.15);
+                box-shadow: 0 16px 36px -18px rgba(0,0,0,.45);
+            }
+
+            .resume-option::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background:
+                    linear-gradient(180deg, color-mix(in oklab, white 10%, transparent), color-mix(in oklab, white 6%, transparent));
+                z-index: 1;
+            }
+
+            .resume-option::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), inset 0 0 5px rgba(255,255,255,0.35);
+                z-index: 2;
+            }
+
+            .resume-option:hover {
+                transform: translateY(-4px);
+                border-color: var(--color-brand-500);
+                box-shadow: 0 20px 40px -20px rgba(0,0,0,.45), 0 0 0 1px var(--color-brand-500);
+            }
+
+            .resume-option-content {
+                position: relative;
+                z-index: 3;
+            }
+
+            .resume-title {
+                font-size: 1.25rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                color: var(--color-text);
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .resume-description {
+                font-size: 0.875rem;
+                color: rgba(255,255,255,0.8);
+                line-height: 1.5;
+            }
+
+            .resume-icon {
+                color: var(--color-brand-500);
+                font-size: 1.5rem;
+            }
+
+            .back-link {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                color: var(--color-text);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                background: rgba(255,255,255,0.1);
+                border: 1px solid rgba(255,255,255,0.2);
+                backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+                z-index: 10;
+            }
+
+            .back-link:hover {
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-2px);
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    padding: 1rem;
+                }
+                
+                h1 {
+                    font-size: 2rem;
+                }
+                
+                .resume-option {
+                    padding: 1rem;
+                }
+                
+                .back-link {
+                    position: static;
+                    margin-bottom: 1rem;
+                    align-self: flex-start;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <a href="https://notquite28.github.io/portfolio" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+            
+            <div class="resume-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content">
+                    <h1>Arnav Panigrahi - Resume</h1>
+                    
+                    <a href="./resumeml.pdf" class="resume-option">
+                        <div class="resume-option-content">
+                            <div class="resume-title">
+                                <i class="fas fa-brain resume-icon"></i>
+                                Machine Learning / AI Resume
+                            </div>
+                            <div class="resume-description">Focused on ML engineering, AI systems, and data science roles</div>
+                        </div>
+                    </a>
+                    
+                    <a href="./resumesoftware.pdf" class="resume-option">
+                        <div class="resume-option-content">
+                            <div class="resume-title">
+                                <i class="fas fa-code resume-icon"></i>
+                                Software Developer Resume
+                            </div>
+                            <div class="resume-description">Focused on full-stack development and software engineering roles</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
