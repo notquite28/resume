@@ -1,105 +1,340 @@
-\documentclass[11pt,a4paper,sans]{moderncv}
-\usepackage{amssymb}
-\moderncvstyle{banking}
-\moderncvcolor{black}
-\nopagenumbers{}
-\usepackage[utf8]{inputenc}
-\usepackage{ragged2e}
-\usepackage[scale=0.915]{geometry}
-\usepackage{import}
-\usepackage{multicol}
-\usepackage{enumitem}
-\usepackage{fontawesome5}
-\usepackage{xcolor}
+\documentclass[10pt, letterpaper]{article}
 
-\newcommand*{\customcventry}[7][.13em]{
-\begin{tabular}{@{}l}
-{\bfseries #4} \\
-{\itshape #3}
-\end{tabular}
-\hfill
-\begin{tabular}{l@{}}
-{\bfseries #5} \\
-{\itshape #2}
-\end{tabular}
-\ifx&#7&%
-\else{%
-\begin{minipage}{\maincolumnwidth}%
-\small#7%
-\end{minipage}}\fi%
-\par\addvspace{#1}}
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=1.25 cm, % seperation between body and page edge from the top
+    bottom=1.0 cm, % seperation between body and page edge from the bottom
+    left=1.25 cm, % seperation between body and page edge from the left
+    right=1.25 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Arnav's Resume},
+    pdfauthor={Arnav Panigrahi},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
 
-\name{\textcolor{black}{Arnav}}{\textcolor{black}{Panigrahi}}
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+\titlespacing{\section}{-1pt}{0.3cm}{0.1cm} % Reduced section spacing
+\setlength{\parskip}{0pt} % Reduce paragraph spacing
+
+\renewenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.05cm,
+        parsep=0.10cm,
+        partopsep=1pt,
+        itemsep=0pt,
+        leftmargin=0cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
 
 \begin{document}
-\makecvtitle
-\vspace{-15mm} % Use a smaller negative value to prevent overlap
-\begin{center}
-\small
-\raisebox{-0.1\height}\faPhone\ +1 951-347-2065 ~
-\href{mailto:arnav.panigrahi@gmail.com}{\faEnvelope\ arnav.panigrahi@gmail.com} ~
-\faHome\enspace Riverside, US ~ \\
-\href{https://linkedin.com/in/arnav-panigrahi}{\faLinkedin\ Arnav Panigrahi} ~
-\href{https://github.com/notquite28}{\faGithub\ notquite28} ~
-\href{https://arnavpanigrahi.com}{\faGlobe\ arnavpanigrahi.com} % added website
-\vspace{-8pt}
-\end{center}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
 
-\section{Professional Summary}
-\textbf{AI/ML Software Engineer} with an MS in CS and 2+ years of experience specializing in Agentic workflows and scalable AI backends. Proven track record of reducing operational costs by 90\% through LLM automation and cloud-native deployment (GCP/FastAPI).
-\vspace{-8pt}
+    \begin{header}
+        \fontsize{20pt}{20pt}\selectfont Arnav Panigrahi
 
-\section{Experience}
+        \vspace{2pt}
 
-\customcventry{Mar 2025 – Present}{Software Developer (Full-time)}{AllCheer (Fateh and Sudha Inc), San Francisco, CA}{}{}{
-\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
-\item Engineered a fully automated Release of Information (ROI) system using a \textbf{LangChain AI agent} to orchestrate document generation, e-signature collection, and secure data sharing, saving \textbf{\$20K/year} and \textbf{reducing processing time by 60\%}.
-\item Deployed a HIPAA compliant production-grade \textbf{FastAPI backend} to ingest real-time data from Rethink BH, building out an observability stack on \textbf{Google Cloud Run} that \textbf{cut costs by 90\%} and eliminated 24-48h latency.
-\item Developed an internal dashboard integrating a GPT-based NLP API for \textbf{named-entity recognition (NER)} and text summarization to structure unformatted therapist notes, improving \textbf{data accuracy to 92\%}.
-\end{itemize}
-}
-\vspace{0.3cm}
-
-\customcventry{Jun 2024 – Dec 2024}{Software Developer Intern}{AllCheer (Fateh and Sudha Inc), San Francisco, CA}{}{}{
-\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
-\item Architected and automated a logistics engine to schedule trips for the staff using \textbf{Google Route / Distance Matrix API}.
-\item Validated ROI automation feasibility through \textbf{Make.com} prototyping, leading to the full-scale production implementation currently in use.
-\end{itemize}
-}
-\vspace{0.3cm}
-\customcventry{Jan 2022 -- Aug 2023}{Junior Software Developer}{Pinnacle Consulting LLC (PCON Utilities Pvt Ltd), Bhubaneswar, India}{}{}{
-\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
-\item Integrated \textbf{ArcGIS} mapping with REST APIs and SQL Server for a \$75M utility provider in North Carolina to visualize infrastructure and sync real-time updates from \textbf{mobile field apps}, reducing oversight errors by \textbf{30\%}.
-\item Delivered \textbf{3 ERP systems} using \textbf{Angular} and \textbf{Node.js} for internal team of 100+ staff to manage \textbf{timesheets}, \textbf{communication}, and \textbf{KPI reporting}; implemented \textbf{JWT authentication}, automated invoicing, improving operational efficiency by \textbf{25\%}.
-\end{itemize}
-}
-
-
-\vspace{-2pt}
-\section{Technical Skills}
-\begin{itemize}[leftmargin=0.45cm, label={\textbullet}, itemsep=1pt, topsep=2pt]
-  \item \textbf{Languages:} Python, JavaScript, TypeScript, SQL
-  \item \textbf{AI \& ML:} LangChain, LangGraph, RAG, PyTorch, TensorFlow, Prompt Engineering, NLP, HuggingFace
-  \item \textbf{Backend \& Cloud:} FastAPI, RESTful API, Node.js (Express), Docker, Kubernetes, Google Cloud, AWS (S3, Lambda)
-  \item \textbf{Databases \& Tools:} PostgreSQL, MongoDB, Redis, Pinecone (Vector DB), Git
-\end{itemize}
-
-
-\section{Projects}
-\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
-    \item \textbf{bedtime.ai – Multi-Modal AI Storytelling Platform} \\
-    A multi-modal AI pipeline that converts drawings to narrated stories; utilized \textbf{EfficientNet} for image feature extraction, a \textbf{fine-tuned phi-3 LLM} for story generation, and \textbf{coqui-ai TTS} for voice cloning.
-
-
-    \item \textbf{Agentic Job Helper:} \\ Stateful multi-agent system using \textbf{LangGraph} and \textbf{GPT-4o} for automated job search and application tracking; managed states with \textbf{FastAPI} and \textbf{Supabase}.
+        \small
+        \mbox{California, USA}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+1-951-347-2065}{951-347-2065}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:arnav.panigrahi@gmail.com}{arnav.panigrahi@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://www.arnavpanigrahi.com/}{Portfolio}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/arnav-panigrahi}{LinkedIn}}%
+    \end{header}
+\section*{Professional Summary}
+\begin{highlights}
+    \item Software Developer with 2.5+ years of experience building production-scale AI systems and backend infrastructure.
+    \item Specialized in LLM agents, retrieval systems, and cloud-native APIs, with proven impact including 90\% infrastructure cost reduction and large-scale automation using LangChain, FastAPI, and GCP in HIPAA compliant systems.
+\end{highlights}
     
-    \item \textbf{RAG for Document Intelligence} \\
-    Built a RAG pipeline for document Q\&A; implemented semantic chunking and embedding generation to index PDFs in \textbf{Pinecone}, enabling a \textbf{LLM} interface with 35\% higher relevance over baseline keyword search.
+    \section{Experience}
+             \begin{twocolentry}{Mar 2025 – Present}
+\textbf{Software Developer}, AllCheer -- California, USA
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+\begin{highlights}
 
-\end{itemize}
+\item Built a LangChain agent to automate Release-of-Information (ROI) processing, orchestrating stakeholder authorization, compliance validation, and document generation, reducing processing time by 60\% and saving \$20K annually.
 
+\item Engineered a containerized FastAPI service that emulates authenticated user sessions against RethinkBH endpoints to retrieve clinical records directly, bypassing public APIs with 24--48 hour API latency and enabling real-time fetch.
+
+\item Developed a React + FastAPI dashboard integrating OpenAI for Named Entity Recognition (NER) to extract structured data from unstructured therapist notes, achieving 92\% extraction accuracy for scheduling and analytics workflows.
+
+\end{highlights}
+\end{onecolentry}
+\vspace{0.3cm}
+
+\begin{twocolentry}{
+    Jun 2024 – Dec 2024
+}
+    \textbf{Software Developer Intern}, AllCheer -- California, USA
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+\begin{highlights}
+    \item Designed a high-throughput logistics engine leveraging Python and Google Cloud to integrate Google Maps Platform APIs (Route and Distance Matrix) for complex multi-stop staff scheduling and Google Maps routes optimization.
+    \item Conducted rapid R\&D and Make.com prototyping to validate ROI automation logic for full-scale production while architecting API schemas to integrate the Python-based logistics engine with internal databases.
+\end{highlights}
+\end{onecolentry}
+\vspace{0.3cm}
+
+\begin{twocolentry}{
+    Jan 2022 – Aug 2023
+}
+    \textbf{Junior Software Developer}, Pinnacle Consulting LLC -- Bhubaneswar, India
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+\begin{highlights}
+    \item Integrated ArcGIS Online geospatial mapping with internal dashboards made with Angular and .NET for a \$75M utility provider, facilitating real-time infrastructure visualization and reducing operational oversight errors by 30\%.
+    \item Delivered 3 full-stack ERP systems utilizing Node.js and SQL Server, implementing Role-Based Access Control (RBAC) via JWT authentication and complex queries to automate invoicing, increasing efficiency by 25\%.
+\end{highlights}
+\end{onecolentry}
+\vspace{0.3cm}
+
+
+\section{Technical Skills}
+\begin{onecolentry}
+    \textbf{Languages:} Python, JavaScript, TypeScript, SQL, C\#, .NET
+\end{onecolentry}
+
+\vspace{0.1cm}
+\begin{onecolentry}
+    \textbf{AI \& ML:} LangChain, LangGraph, RAG pipelines, PyTorch, TensorFlow, HuggingFace, NLP, Prompt Engineering
+\end{onecolentry}
+
+\vspace{0.1cm}
+\begin{onecolentry}
+    \textbf{Backend \& Infrastructure:} FastAPI, Node.js (Express), REST APIs, Docker, Kubernetes, WebSockets
+\end{onecolentry}
+
+
+\vspace{0.1cm}
+\begin{onecolentry}
+    \textbf{Cloud \& DevOps:} Google Cloud (Cloud Run), AWS, CI/CD, containerized deployment
+\end{onecolentry}
+
+\vspace{0.1cm}
+\begin{onecolentry}
+    \textbf{Databases \& Tools:} PostgreSQL, MongoDB, Redis, Pinecone (Vector DB), Git
+\end{onecolentry}
+
+
+    \section{Projects}
+        \begin{twocolentry}{
+    2025
+}
+    \textbf{\href{https://github.com/notquite28/abliteration}{LLM Abliteration \& Interpretability (LiquidAI LFM2.5)}} | PyTorch, Hugging Face, NumPy.
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Implemented an interpretability pipeline for the LFM2.5-1.2B model using weight orthogonalization and residual stream analysis, extracting activations using PyTorch hooks to identify refusal directions for inference-time intervention.
+        \item Executed inference-time interventions to reduce model refusals for educational prompts, adapting research techniques to a custom architecture through precise manipulation of internal feature representations.
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.3cm}
+
+\begin{twocolentry}{2025}
+\textbf{\href{https://github.com/notquite28/bedtime.ai}{bedtime.ai – Multi-Modal AI Storytelling Platform}} |  Phi-3, EfficientNet, TTS, FastAPI, React
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Architected an end-to-end multi-modal pipeline that processes visual input via EfficientNet for high-dimensional feature extraction, which is then contextualized by a fine-tuned Phi-3 LLM to generate narrative scripts.
+        \item Integrated Coqui-ai TTS for zero-shot voice cloning, utilizing the generated scripts to produce narrated audio stories, effectively bridging Computer Vision (CV), NLP, and Speech Synthesis into a unified product.
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.3cm}
+
+
+\begin{twocolentry}{2026}
+\textbf{\href{https://github.com/notquite28/nier-archive-site}{Nier Archive (Real-Time Site)}} | SvelteKit 5, TypeScript, Cloudflare Workers, Durable Objects
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Engineered a high-performance web experience using SvelteKit 5 and Cloudflare Workers, leveraging Durable Objects for low-latency, stateful WebSocket management to support live cursor sharing.
+        \item Streamlined content delivery by building a custom Vite plugin for build-time markdown parsing and deploying the application globally using Cloudflare Pages and KV storage for edge-optimized performance.
+    \end{highlights}
+\end{onecolentry}
+
+        % \vspace{0.3cm}
+        % \vspace{0.35cm}
 
 \section{Education}
-\customcventry{2023 - 2025}{Master of Science in Computer Science}{University of California, Riverside}{}{}{GPA: 3.61}
+        \begin{twocolentry}{Sep 2023 – Mar 2025}
+            \textbf{University of California, Riverside}\end{twocolentry}
+        \vspace{0.05cm}
+        \begin{onecolentry}
+         MS in Computer Science\\
+         \textit{Relevant Coursework: Deep Learning, Data Structures and Algorithms, Computer Architecture, Operating Systems}
+        \end{onecolentry}
+        \vspace{0.15cm}
 
+
+        \begin{twocolentry}{Jul 2018 – Mar 2022}
+            \textbf{Vellore Institute of Technology, Amaravati} \end{twocolentry}
+            \begin{onecolentry}
+            BTech in Computer Science and Engineering
+            \end{onecolentry}
 \end{document}
