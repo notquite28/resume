@@ -198,11 +198,11 @@
         \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/arnav-panigrahi}{LinkedIn}}%
     \end{header}
 
-\section*{Professional Summary}
-\begin{highlights}
-\item Full-stack software engineer with 2.5+ years of experience building production web platforms, distributed APIs, and automation systems across healthcare, logistics, and enterprise software domains.
-\item Experienced designing scalable backend services and cloud-native systems using Python, TypeScript, FastAPI, Node.js, and Google Cloud; optimized infrastructure reducing operational costs by 90\% while improving system latency and reliability.
-\end{highlights}
+% \section*{Professional Summary}
+% \begin{highlights}
+% \item Full-stack software engineer with 3 years of experience building production web platforms, distributed APIs, and automation systems across healthcare, logistics, and enterprise software domains.
+% \item Experienced designing scalable backend services and cloud-native systems using Python, TypeScript, FastAPI, Node.js, and Google Cloud; optimized infrastructure reducing operational costs by 90\% while improving system latency and reliability.
+% \end{highlights}
 
 \section{Experience}
 
@@ -249,7 +249,7 @@
 \section{Technical Skills}
 
 \begin{onecolentry}
-\textbf{Languages:} Python, TypeScript, JavaScript, SQL, C\#, Bash
+\textbf{Languages:} Python, TypeScript, JavaScript, SQL, C\#, Java
 \end{onecolentry}
 
 \vspace{0.1cm}
@@ -267,7 +267,7 @@
 \vspace{0.1cm}
 
 \begin{onecolentry}
-\textbf{Cloud \& DevOps:} Google Cloud (Cloud Run, IAM), AWS, Docker, CI/CD pipelines, Serverless architectures
+\textbf{Cloud \& DevOps:} Google Cloud, AWS, Docker, CI/CD pipelines, Serverless architectures
 \end{onecolentry}
 
 \vspace{0.1cm}
@@ -279,36 +279,35 @@
 \vspace{0.1cm}
 
 \begin{onecolentry}
-\textbf{AI Systems:} LangChain, LangGraph, Retrieval-Augmented Generation (RAG), HuggingFace, PyTorch, NLP pipelines
+\textbf{AI Systems:} LangChain Agents, Retrieval-Augmented Generation (RAG), LLMs
 \end{onecolentry}
 
 \section{Projects}
 
-\begin{twocolentry}{2025}
-\textbf{\href{https://github.com/notquite28/abliteration}{LLM Abliteration \& Interpretability (LiquidAI LFM2.5)}} | PyTorch, Hugging Face, NumPy
+% \begin{twocolentry}{2025}
+% \textbf{\href{https://github.com/notquite28/abliteration}{LLM Abliteration \& Interpretability (LiquidAI LFM2.5)}} | PyTorch, Hugging Face, NumPy
+% \end{twocolentry}
+% \vspace{0.05cm}
+% \begin{onecolentry}
+% \begin{highlights}
+% \item Built an interpretability pipeline analyzing transformer internal activations using PyTorch hooks and residual stream analysis, implementing weight orthogonalization methods to identify refusal directions in the LFM2.5-1.2B architecture.
+% \item Developed inference-time interventions to reduce model refusals for educational prompts, adapting research techniques to
+% a custom architecture through precise manipulation of internal feature representations.
+% \end{highlights}
+% \end{onecolentry}
+
+% \vspace{0.3cm}
+
+\begin{twocolentry}{2026}
+\textbf{\href{https://github.com/notquite28/langchain-rag}{LangChain RAG System for Knowledge Retrieval}} | LangChain, OpenAI, Qdrant, FastAPI
 \end{twocolentry}
 \vspace{0.05cm}
 \begin{onecolentry}
 \begin{highlights}
-\item Built an interpretability pipeline analyzing transformer internal activations using PyTorch hooks and residual stream analysis, implementing weight orthogonalization methods to identify refusal directions in the LFM2.5-1.2B architecture.
-\item Developed inference-time interventions to reduce model refusals for educational prompts, adapting research techniques to
-a custom architecture through precise manipulation of internal feature representations.
+\item Engineered a production-ready RAG system with config-driven ingestion, semantic chunking, OpenAI embeddings, and Qdrant vector search (top-k optimization), enabling low-latency, context-aware QA over domain-specific corpora.
+\item AI assistant-style retrieval workflows with LangChain, hardening against injection, source attribution, retry logic, and lazy initialization, and validated system reliability through mocked unit and real-API integration testing.
 \end{highlights}
 \end{onecolentry}
-
-\vspace{0.3cm}
-
-\begin{twocolentry}{2025}
-\textbf{\href{https://github.com/notquite28/bedtime.ai}{bedtime.ai – Multi-Modal AI Storytelling Platform}} | FastAPI, React, Phi-3, EfficientNet, TTS
-\end{twocolentry}
-\vspace{0.05cm}
-\begin{onecolentry}
-\begin{highlights}
-\item Architected a full-stack multi-modal platform combining computer vision, LLM text generation, and speech synthesis, processing image inputs with EfficientNet embeddings and generating narrative scripts using a Phi-3 language model.
-\item Implemented backend inference services with FastAPI and asynchronous processing pipelines to coordinate vision models, LLM generation, and Coqui TTS voice synthesis into a unified storytelling workflow.
-\end{highlights}
-\end{onecolentry}
-
 \vspace{0.3cm}
 
 \begin{twocolentry}{2026}
@@ -321,6 +320,17 @@ a custom architecture through precise manipulation of internal feature represent
 \item Streamlined content delivery by building a custom Vite plugin for build-time markdown parsing and deploying the application globally using Cloudflare Pages and KV storage for edge-optimized performance.
 \end{highlights}
 \end{onecolentry}
+\vspace{0.3cm}
+\begin{twocolentry}{2025}
+\textbf{\href{https://github.com/notquite28/bedtime.ai}{bedtime.ai – Multi-Modal AI Storytelling Platform}} |  Phi-3, EfficientNet, TTS, FastAPI, React
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+\begin{highlights}
+\item Built a multi-modal AI assistant that transforms user sketches into narrated stories using fine-tuned EfficientNet classification, Phi-3 LLM generation, and Coqui TTS within a real-time inference pipeline, deployed on Google Cloud
+\item Developed an end-to-end ML system with dataset preprocessing, model fine-tuning (250 classes), and prompt engineering for Phi-3, orchestrated via FastAPI with optimizations for inference latency, accuracy, and user experience
+\end{highlights}
+\end{onecolentry}
 
 \section{Education}
 
@@ -330,16 +340,16 @@ a custom architecture through precise manipulation of internal feature represent
 \vspace{0.05cm}
 \begin{onecolentry}
 MS in Computer Science \\
-\textit{Relevant Coursework: Deep Learning, Data Structures and Algorithms, Computer Architecture, Operating Systems}
+\textit{Relevant Coursework: Data Structures and Algorithms, Artificial Intelligence, Computer Architecture, Operating Systems}
 \end{onecolentry}
 
 \vspace{0.15cm}
 
-\begin{twocolentry}{Jul 2018 – Mar 2022}
-\textbf{Vellore Institute of Technology, Amaravati}
-\end{twocolentry}
-\begin{onecolentry}
-BTech in Computer Science and Engineering
-\end{onecolentry}
+% \begin{twocolentry}{Jul 2018 – Mar 2022}
+% \textbf{Vellore Institute of Technology, Amaravati}
+% \end{twocolentry}
+% \begin{onecolentry}
+% BTech in Computer Science and Engineering
+% \end{onecolentry}
 
 \end{document}
