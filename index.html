@@ -1,286 +1,509 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <meta charset="UTF-8">      
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!--You can add your name and affiliation below to personalise -->
-        <meta property="og:title" content="Resume - Arnav Panigrahi"/>
-        
-        <!--You can add your keywords to personalise-->
-        <meta property="og:description" content="Education, Experience, Projects etc."/>
-        
-        <meta property="og:image" content="https://dummyimage.com/100x100/000/fff&text=CV" />
+        <meta name="theme-color" content="#071414">
+        <meta name="description" content="Download Arnav Panigrahi's Machine Learning / AI and Software Developer resumes.">
+        <meta property="og:title" content="Resume - Arnav Panigrahi">
+        <meta property="og:description" content="Machine Learning / AI and Software Developer resume variants for Arnav Panigrahi.">
+        <meta property="og:image" content="https://arnavpanigrahi.com/og-image.png">
+        <meta property="og:type" content="website">
         <title>Resume - Arnav Panigrahi</title>
-        
-        <!-- Font Awesome for icons -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
         <style>
             :root {
-                /* Dracula palette */
-                --color-surface: #282a36;      /* background */
-                --color-surface-2: #44475a;    /* current line */
-                --color-text: #f8f8f2;         /* foreground */
-                --color-comment: #6272a4;      /* comments */
-                --color-cyan: #8be9fd;
-                --color-green: #50fa7b;
-                --color-orange: #ffb86c;
-                --color-pink: #ff79c6;
-                --color-purple: #bd93f9;
-                --color-red: #ff5555;
-                --color-yellow: #f1fa8c;
-
-                /* Brand tokens mapped to Dracula */
-                --color-brand-50: #44475a;
-                --color-brand-400: var(--color-purple);
-                --color-brand-500: var(--color-purple);
-                --color-accent-500: var(--color-pink);
-                --color-mint-500: var(--color-cyan);
+                --c-pond-900: oklch(13.2% 0.028 184);
+                --c-pond-850: oklch(15.5% 0.034 184);
+                --c-pond-800: oklch(18.5% 0.042 184);
+                --c-pond-700: oklch(23% 0.052 184);
+                --c-cream: #fff7e7;
+                --c-cream-muted: #d9cdbb;
+                --c-sage: #b8c4b1;
+                --c-koi-orange: #ff7a4f;
+                --c-koi-red: #d96650;
+                --c-water-mint: #7ed6c6;
+                --c-koi-gold: #f3c77b;
+                --c-surface: var(--c-pond-900);
+                --c-elevated: var(--c-pond-800);
+                --c-ink: var(--c-cream);
+                --c-body: var(--c-cream-muted);
+                --c-muted: var(--c-sage);
+                --c-rule: color-mix(in oklch, var(--c-water-mint) 18%, transparent);
+                --c-accent: var(--c-koi-orange);
+                --c-accent-soft: var(--c-water-mint);
+                --c-card-border: color-mix(in oklch, var(--c-water-mint) 22%, transparent);
+                --shadow-soft: 0 1.5rem 4rem rgba(0, 0, 0, 0.34);
+                --font-serif: "Fraunces", Georgia, serif;
+                --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+                --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+                --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
             }
 
             * {
-                margin: 0;
-                padding: 0;
                 box-sizing: border-box;
             }
 
-            body {
-                font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-                background: var(--color-surface);
-                color: var(--color-text);
-                min-height: 100vh;
-                overflow-x: hidden;
-                position: relative;
+            html {
+                min-height: 100%;
+                background: var(--c-surface);
             }
 
-            /* Decorative gradient overlay */
+            body {
+                min-height: 100vh;
+                margin: 0;
+                color: var(--c-ink);
+                font-family: var(--font-sans);
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                overflow-x: hidden;
+                isolation: isolate;
+                background:
+                    radial-gradient(circle at 16% 0%, color-mix(in oklch, var(--c-water-mint) 18%, transparent), transparent 40rem),
+                    radial-gradient(circle at 92% 8%, color-mix(in oklch, var(--c-koi-orange) 10%, transparent), transparent 32rem),
+                    radial-gradient(circle at 50% 100%, color-mix(in oklch, var(--c-koi-gold) 8%, transparent), transparent 50rem),
+                    linear-gradient(180deg, var(--c-pond-850) 0%, var(--c-surface) 36rem);
+            }
+
             body::before {
-                content: "";
+                content: '';
                 position: fixed;
                 inset: 0;
-                z-index: 0;
+                z-index: -2;
                 pointer-events: none;
-                backdrop-filter: blur(8px) saturate(1.05);
-                background:
-                    linear-gradient(0deg, color-mix(in oklab, black 60%, transparent), color-mix(in oklab, black 55%, transparent)),
-                    radial-gradient(900px 500px at 15% 10%, color-mix(in oklab, var(--color-brand-500) 25%, transparent), transparent 60%),
-                    radial-gradient(700px 400px at 85% 15%, color-mix(in oklab, var(--color-accent-500) 20%, transparent), transparent 60%),
-                    radial-gradient(1000px 600px at 50% 85%, color-mix(in oklab, var(--color-mint-500) 18%, transparent), transparent 60%);
+                background-image:
+                    linear-gradient(color-mix(in oklch, var(--c-water-mint) 5%, transparent) 1px, transparent 1px),
+                    linear-gradient(90deg, color-mix(in oklch, var(--c-water-mint) 3%, transparent) 1px, transparent 1px);
+                background-size: 5rem 5rem;
+                mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 80%);
             }
 
-            .container {
-                position: relative;
-                z-index: 1;
-                max-width: 800px;
-                margin: 0 auto;
-                padding: 2rem;
-                min-height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .resume-container {
-                background: transparent;
-                border-radius: 1rem;
-                overflow: hidden;
-                position: relative;
-                border: 1px solid rgba(255,255,255,0.28);
-                color: rgba(255,255,255,0.95);
-            }
-
-            .glass-filter,
-            .glass-overlay,
-            .glass-specular {
-                position: absolute;
+            body::after {
+                content: '';
+                position: fixed;
                 inset: 0;
-                border-radius: inherit;
+                z-index: 9997;
                 pointer-events: none;
+                opacity: 0.025;
+                background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+                background-repeat: repeat;
+                background-size: 200px 200px;
             }
 
-            .glass-filter {
-                z-index: 0;
-                backdrop-filter: blur(10px) saturate(1.15);
-                -webkit-backdrop-filter: blur(10px) saturate(1.15);
+            ::selection {
+                background: color-mix(in oklch, var(--c-koi-orange) 38%, transparent);
+                color: var(--c-ink);
             }
 
-            .glass-overlay {
-                z-index: 1;
-                background:
-                    linear-gradient(180deg, color-mix(in oklab, white 10%, transparent), color-mix(in oklab, white 6%, transparent));
+            :focus-visible {
+                outline: 1px solid var(--c-accent-soft);
+                outline-offset: 4px;
             }
 
-            .glass-specular {
-                z-index: 2;
-                box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), inset 0 0 5px rgba(255,255,255,0.35);
+            .skip-link {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
             }
 
-            .glass-content {
-                position: relative;
-                z-index: 3;
-                padding: 2rem;
-            }
-
-            h1 {
-                background: linear-gradient(90deg, var(--color-brand-400), var(--color-accent-500));
-                -webkit-background-clip: text;
-                background-clip: text;
-                color: transparent;
-                text-align: center;
-                margin-bottom: 2rem;
-                font-size: 2.5rem;
-                font-weight: bold;
-                text-shadow: 0 2px 8px rgba(0,0,0,.35);
-            }
-
-            .resume-option {
-                display: block;
-                margin: 1.5rem 0;
-                padding: 1.5rem;
-                background: transparent;
-                border: 1px solid rgba(255,255,255,0.28);
-                border-radius: 1rem;
+            .skip-link:focus {
+                position: fixed;
+                top: 1rem;
+                left: 1rem;
+                z-index: 100;
+                width: auto;
+                height: auto;
+                padding: 0.5rem 1rem;
+                margin: 0;
+                overflow: visible;
+                clip: auto;
+                white-space: normal;
+                background: var(--c-elevated);
+                color: var(--c-ink);
+                outline: 2px solid var(--c-accent);
+                outline-offset: 2px;
                 text-decoration: none;
-                color: var(--color-text);
-                transition: all 0.3s ease;
-                position: relative;
-                overflow: hidden;
-                backdrop-filter: blur(10px) saturate(1.15);
-                -webkit-backdrop-filter: blur(10px) saturate(1.15);
-                box-shadow: 0 16px 36px -18px rgba(0,0,0,.45);
-            }
-
-            .resume-option::before {
-                content: "";
-                position: absolute;
-                inset: 0;
-                border-radius: inherit;
-                background:
-                    linear-gradient(180deg, color-mix(in oklab, white 10%, transparent), color-mix(in oklab, white 6%, transparent));
-                z-index: 1;
-            }
-
-            .resume-option::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                border-radius: inherit;
-                box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), inset 0 0 5px rgba(255,255,255,0.35);
-                z-index: 2;
-            }
-
-            .resume-option:hover {
-                transform: translateY(-4px);
-                border-color: var(--color-brand-500);
-                box-shadow: 0 20px 40px -20px rgba(0,0,0,.45), 0 0 0 1px var(--color-brand-500);
-            }
-
-            .resume-option-content {
-                position: relative;
-                z-index: 3;
-            }
-
-            .resume-title {
-                font-size: 1.25rem;
-                font-weight: bold;
-                margin-bottom: 0.5rem;
-                color: var(--color-text);
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-            }
-
-            .resume-description {
                 font-size: 0.875rem;
-                color: rgba(255,255,255,0.8);
-                line-height: 1.5;
+                border-radius: 0.25rem;
             }
 
-            .resume-icon {
-                color: var(--color-brand-500);
-                font-size: 1.5rem;
+            .cursor-glow {
+                position: fixed;
+                width: 40rem;
+                height: 40rem;
+                margin-left: -20rem;
+                margin-top: -20rem;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                background: radial-gradient(circle, color-mix(in oklch, var(--c-koi-orange) 10%, transparent) 0%, color-mix(in oklch, var(--c-water-mint) 7%, transparent) 38%, transparent 70%);
+                transform: translate3d(var(--cursor-x, 50vw), var(--cursor-y, 50vh), 0);
+                left: 0;
+                top: 0;
+                opacity: 0;
+            }
+
+            .page-shell {
+                min-height: 100vh;
+                display: grid;
+                place-items: center;
+                padding: clamp(1rem, 4vw, 4rem);
+            }
+
+            .resume-panel {
+                width: min(100%, 68rem);
+                position: relative;
+                display: grid;
+                grid-template-columns: minmax(0, 0.92fr) minmax(20rem, 1.08fr);
+                gap: clamp(1.5rem, 4vw, 4rem);
+                padding: clamp(1.25rem, 4vw, 3rem);
+                border: 1px solid rgba(240, 235, 228, 0.08);
+                border-radius: 2rem;
+                background: rgba(5, 5, 5, 0.18);
+                backdrop-filter: blur(8px) saturate(1.05);
+                -webkit-backdrop-filter: blur(8px) saturate(1.05);
+                box-shadow: var(--shadow-soft);
+                overflow: hidden;
+            }
+
+            .resume-panel::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background:
+                    radial-gradient(circle at 18% 15%, color-mix(in oklch, var(--c-water-mint) 12%, transparent), transparent 20rem),
+                    linear-gradient(180deg, color-mix(in oklch, white 7%, transparent), transparent 42%);
+                opacity: 0.9;
+            }
+
+            .resume-panel > * {
+                position: relative;
+                z-index: 1;
             }
 
             .back-link {
                 position: absolute;
-                top: 1rem;
-                left: 1rem;
-                color: var(--color-text);
-                text-decoration: none;
-                display: flex;
+                top: 1.25rem;
+                left: 1.25rem;
+                z-index: 2;
+                display: inline-flex;
                 align-items: center;
                 gap: 0.5rem;
-                padding: 0.5rem 1rem;
-                border-radius: 0.5rem;
-                background: rgba(255,255,255,0.1);
-                border: 1px solid rgba(255,255,255,0.2);
-                backdrop-filter: blur(10px);
-                transition: all 0.3s ease;
-                z-index: 10;
+                color: var(--c-muted);
+                font-family: var(--font-mono);
+                font-size: 0.75rem;
+                font-weight: 500;
+                letter-spacing: 0.04em;
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: color 260ms var(--ease-expo), transform 260ms var(--ease-expo);
             }
 
             .back-link:hover {
-                background: rgba(255,255,255,0.2);
-                transform: translateY(-2px);
+                color: var(--c-accent);
+                transform: translateX(-2px);
             }
 
-            @media (max-width: 768px) {
-                .container {
-                    padding: 1rem;
+            .intro {
+                display: flex;
+                min-height: 28rem;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding-top: 3rem;
+            }
+
+            .eyebrow {
+                margin: 0 0 1rem;
+                color: var(--c-accent);
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                font-weight: 600;
+                letter-spacing: 0.18em;
+                text-transform: uppercase;
+            }
+
+            h1 {
+                max-width: 12ch;
+                margin: 0;
+                color: var(--c-ink);
+                font-family: var(--font-serif);
+                font-size: clamp(3.5rem, 10vw, 8rem);
+                font-weight: 300;
+                letter-spacing: -0.06em;
+                line-height: 0.86;
+            }
+
+            .lede {
+                max-width: 34rem;
+                margin: 1.4rem 0 0;
+                color: var(--c-body);
+                font-size: clamp(1rem, 1.5vw, 1.15rem);
+                line-height: 1.7;
+            }
+
+            .resume-list {
+                display: grid;
+                align-content: center;
+                gap: 1rem;
+            }
+
+            .resume-option {
+                position: relative;
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                align-items: center;
+                gap: 1rem;
+                min-height: 9rem;
+                padding: clamp(1rem, 2.2vw, 1.5rem);
+                overflow: hidden;
+                color: var(--c-ink);
+                text-decoration: none;
+                border: 1px solid var(--c-card-border);
+                border-radius: 1.25rem;
+                background: color-mix(in oklch, var(--c-pond-800) 58%, transparent);
+                box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.18);
+                transition: border-color 320ms var(--ease-expo), box-shadow 320ms var(--ease-expo), transform 320ms var(--ease-expo), background 320ms var(--ease-expo);
+            }
+
+            .resume-option::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                pointer-events: none;
+                background:
+                    radial-gradient(circle at 12% 18%, color-mix(in oklch, var(--card-accent) 16%, transparent), transparent 12rem),
+                    linear-gradient(180deg, color-mix(in oklch, white 8%, transparent), transparent);
+                opacity: 0.8;
+            }
+
+            .resume-option:hover {
+                transform: translateY(-4px);
+                border-color: color-mix(in oklch, var(--card-accent) 48%, transparent);
+                background: color-mix(in oklch, var(--c-pond-700) 70%, transparent);
+                box-shadow: 0 1.35rem 3rem rgba(0, 0, 0, 0.28);
+            }
+
+            .resume-option:focus-visible {
+                border-color: var(--card-accent);
+            }
+
+            .resume-option.ml {
+                --card-accent: var(--c-water-mint);
+            }
+
+            .resume-option.software {
+                --card-accent: var(--c-koi-orange);
+            }
+
+            .resume-mark,
+            .resume-copy,
+            .resume-arrow {
+                position: relative;
+                z-index: 1;
+            }
+
+            .resume-mark {
+                display: grid;
+                width: 3.25rem;
+                height: 3.25rem;
+                place-items: center;
+                border: 1px solid color-mix(in oklch, var(--card-accent) 34%, transparent);
+                border-radius: 999px;
+                color: var(--card-accent);
+                font-family: var(--font-mono);
+                font-size: 0.78rem;
+                font-weight: 600;
+                letter-spacing: 0.08em;
+            }
+
+            .resume-title {
+                display: block;
+                color: var(--c-ink);
+                font-family: var(--font-serif);
+                font-size: clamp(1.45rem, 2.8vw, 2.1rem);
+                font-weight: 350;
+                letter-spacing: -0.025em;
+                line-height: 1.05;
+            }
+
+            .resume-description {
+                display: block;
+                margin-top: 0.45rem;
+                color: var(--c-body);
+                font-size: 0.95rem;
+                line-height: 1.55;
+            }
+
+            .resume-arrow {
+                color: var(--card-accent);
+                font-family: var(--font-mono);
+                font-size: 1.4rem;
+                transform: translateX(0);
+                transition: transform 320ms var(--ease-expo);
+            }
+
+            .resume-option:hover .resume-arrow {
+                transform: translateX(4px);
+            }
+
+            .note {
+                margin: 0.5rem 0 0;
+                color: var(--c-muted);
+                font-family: var(--font-mono);
+                font-size: 0.75rem;
+                letter-spacing: 0.03em;
+            }
+
+            @media (hover: hover) and (pointer: fine) {
+                .cursor-glow {
+                    opacity: 1;
                 }
-                
-                h1 {
-                    font-size: 2rem;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                *,
+                *::before,
+                *::after {
+                    scroll-behavior: auto !important;
+                    transition-duration: 0.01ms !important;
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
                 }
-                
+
+                .cursor-glow,
+                body::after {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 860px) {
+                .page-shell {
+                    place-items: stretch;
+                }
+
+                .resume-panel {
+                    grid-template-columns: 1fr;
+                    gap: 2rem;
+                    min-height: calc(100vh - 2rem);
+                }
+
+                .intro {
+                    min-height: auto;
+                    padding-top: 4rem;
+                }
+            }
+
+            @media (max-width: 560px) {
+                .page-shell {
+                    padding: 0;
+                }
+
+                .resume-panel {
+                    min-height: 100vh;
+                    border-radius: 0;
+                    border-left: 0;
+                    border-right: 0;
+                }
+
                 .resume-option {
-                    padding: 1rem;
+                    grid-template-columns: 1fr auto;
                 }
-                
-                .back-link {
-                    position: static;
-                    margin-bottom: 1rem;
-                    align-self: flex-start;
+
+                .resume-mark {
+                    display: none;
                 }
             }
         </style>
     </head>
     <body>
-        <div class="container">
-            <a href="https://notquite28.github.io/portfolio" class="back-link">
-                <i class="fas fa-arrow-left"></i>
-                Back to Portfolio
-            </a>
-            
-            <div class="resume-container">
-                <div class="glass-filter"></div>
-                <div class="glass-overlay"></div>
-                <div class="glass-specular"></div>
-                <div class="glass-content">
-                    <h1>Arnav Panigrahi - Resume</h1>
-                    
-                    <a href="./resumeml.pdf" class="resume-option">
-                        <div class="resume-option-content">
-                            <div class="resume-title">
-                                <i class="fas fa-brain resume-icon"></i>
-                                Machine Learning / AI Resume
-                            </div>
-                            <div class="resume-description">Focused on ML engineering, AI systems, and data science roles</div>
-                        </div>
-                    </a>
-                    
-                    <a href="./resumesoftware.pdf" class="resume-option">
-                        <div class="resume-option-content">
-                            <div class="resume-title">
-                                <i class="fas fa-code resume-icon"></i>
-                                Software Developer Resume
-                            </div>
-                            <div class="resume-description">Focused on full-stack development and software engineering roles</div>
-                        </div>
-                    </a>
+        <a href="#main-content" class="skip-link">Skip to content</a>
+        <div class="cursor-glow" aria-hidden="true"></div>
+
+        <main id="main-content" class="page-shell">
+            <section class="resume-panel" aria-labelledby="resume-title">
+                <a href="https://notquite28.github.io/portfolio" class="back-link" aria-label="Back to portfolio">← Portfolio</a>
+
+                <div class="intro">
+                    <p class="eyebrow">Resume archive</p>
+                    <h1 id="resume-title">Arnav Panigrahi</h1>
+                    <p class="lede">Two focused PDFs, built from the same source system and tuned for the role you are opening.</p>
                 </div>
-            </div>
-        </div>
+
+                <div class="resume-list" aria-label="Resume downloads">
+                    <a href="./resumeml.pdf" class="resume-option ml">
+                        <span class="resume-mark" aria-hidden="true">AI</span>
+                        <span class="resume-copy">
+                            <span class="resume-title">Machine Learning / AI</span>
+                            <span class="resume-description">ML engineering, AI systems, data workflows, and production automation.</span>
+                        </span>
+                        <span class="resume-arrow" aria-hidden="true">→</span>
+                    </a>
+
+                    <a href="./resumesoftware.pdf" class="resume-option software">
+                        <span class="resume-mark" aria-hidden="true">SE</span>
+                        <span class="resume-copy">
+                            <span class="resume-title">Software Developer</span>
+                            <span class="resume-description">Backend systems, full-stack applications, infrastructure, and product engineering.</span>
+                        </span>
+                        <span class="resume-arrow" aria-hidden="true">→</span>
+                    </a>
+
+                    <p class="note">PDF artifacts are rebuilt by GitHub Actions on every resume update.</p>
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const cursorGlow = document.querySelector('.cursor-glow');
+            const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            if (cursorGlow && finePointer.matches && !reducedMotion.matches) {
+                let rafId = 0;
+                let mouseX = window.innerWidth / 2;
+                let mouseY = window.innerHeight / 2;
+                let currentX = mouseX;
+                let currentY = mouseY;
+                let lastMove = performance.now();
+                let active = false;
+
+                const animate = () => {
+                    const now = performance.now();
+                    if (now - lastMove > 120) {
+                        active = false;
+                        return;
+                    }
+
+                    currentX += (mouseX - currentX) * 0.08;
+                    currentY += (mouseY - currentY) * 0.08;
+                    cursorGlow.style.setProperty('--cursor-x', `${currentX}px`);
+                    cursorGlow.style.setProperty('--cursor-y', `${currentY}px`);
+                    rafId = requestAnimationFrame(animate);
+                };
+
+                document.addEventListener('mousemove', (event) => {
+                    mouseX = event.clientX;
+                    mouseY = event.clientY;
+                    lastMove = performance.now();
+                    if (!active) {
+                        active = true;
+                        rafId = requestAnimationFrame(animate);
+                    }
+                });
+
+                window.addEventListener('pagehide', () => cancelAnimationFrame(rafId), { once: true });
+            }
+        </script>
     </body>
 </html>
