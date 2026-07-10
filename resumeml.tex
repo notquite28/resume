@@ -8,7 +8,7 @@
     left=1.25 cm, % seperation between body and page edge from the left
     right=1.25 cm, % seperation between body and page edge from the right
     footskip=1.0 cm, % seperation between body and footer
-    % showframe % for debugging 
+    % showframe % for debugging
 ]{geometry} % for adjusting page geometry
 \usepackage{titlesec} % for customizing section titles
 \usepackage{tabularx} % for making tables with fixed width columns
@@ -195,7 +195,7 @@
         \kern 5.0 pt%
         \AND%
         \kern 5.0 pt%
-        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/arnav-panigrahi}{www.linkedin.com/in/arnav-panigrahi}}%
+        \mbox{\hrefWithoutArrow{https://www.linkedin.com/in/arnavpanigrahi}{www.linkedin.com/in/arnavpanigrahi}}%
     \end{header}
 
 
@@ -213,7 +213,8 @@
 \vspace{0.05cm}
 \begin{onecolentry}
 \begin{highlights}
-    \item Built a LangChain-based AI agent to automate ROI processing, orchestrating authorization checks, compliance validation, and document generation across backend workflows, reducing processing time by 60\% and saving \$20K annually.
+\item Built a HIPAA compliant LangChain agent-driven ROI automation orchestrating stakeholder authorization, compliance validation, and document distribution, enforcing multi-party approval logic and reducing manual processing time by 60\%.
+
     \item Engineered a containerized FastAPI service that emulated authenticated user sessions against RethinkBH endpoints to retrieve clinical records in real time, bypassing public APIs with 24--48 hour latency for downstream applications.
     \item Developed a React + FastAPI platform using OpenAI-powered NER to extract structured data from therapist notes, achieving 92\% accuracy and enabling backend pipelines for scheduling, analytics, and automation workflows.
 \end{highlights}
@@ -270,6 +271,20 @@
 
 \section{Projects}
 
+
+\begin{twocolentry}{2026}
+\textbf{\href{https://github.com/notquite28/sabi-agent}{Sabi Agent -- Rust Coding-Agent Harness}} | Rust, Tauri, TypeScript, OpenAI-Compatible APIs
+\end{twocolentry}
+\vspace{0.05cm}
+\begin{onecolentry}
+\begin{highlights}
+\item Built a Rust-based agentic coding harness with OpenAI chat completions, structured event streaming, persistent JSONL sessions, resumable conversations, and tool execution for read, write, edit, bash, search, and workflows.
+\item Implemented agent safety and extensibility features including interactive approvals for destructive tools, session-only approval bypass mode, skill discovery/invocation, provider configuration, CLI onboarding, and a Tauri desktop shell.
+\end{highlights}
+\end{onecolentry}
+\vspace{0.3cm}
+
+
 \begin{twocolentry}{2026}
 \textbf{\href{https://github.com/notquite28/langchain-rag}{Scalable RAG System for Knowledge Retrieval}} | LangChain, OpenAI, Qdrant, FastAPI
 \end{twocolentry}
@@ -283,17 +298,6 @@
 
 \vspace{0.3cm}
 
-\begin{twocolentry}{2025}
-\textbf{\href{https://github.com/notquite28/abliteration}{LLM Abliteration \& Interpretability (LiquidAI LFM2.5)}} | PyTorch, Hugging Face, NumPy
-\end{twocolentry}
-\vspace{0.05cm}
-\begin{onecolentry}
-\begin{highlights}
-    \item Implemented an interpretability pipeline for the LFM2.5-1.2B model using weight orthogonalization, residual stream analysis, and PyTorch hooks to identify refusal directions for inference-time intervention.
-    \item Applied internal activation steering techniques to reduce model refusals for educational prompts, adapting research methods to a custom architecture through precise manipulation of hidden feature representations.
-\end{highlights}
-\end{onecolentry}
-\vspace{0.3cm}
 
 
 \begin{twocolentry}{2025}
