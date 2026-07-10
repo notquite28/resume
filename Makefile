@@ -1,10 +1,10 @@
-ML_CV=resumeml
+AI_CV=resumeai
 SOFTWARE_CV=resumesoftware
 
-all: ${ML_CV}.pdf ${SOFTWARE_CV}.pdf
+all: ${AI_CV}.pdf ${SOFTWARE_CV}.pdf
 
-${ML_CV}.pdf:
-	latexmk -pdf ${ML_CV}.tex
+${AI_CV}.pdf:
+	latexmk -pdf ${AI_CV}.tex
 
 ${SOFTWARE_CV}.pdf:
 	latexmk -pdf ${SOFTWARE_CV}.tex

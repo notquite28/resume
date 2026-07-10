@@ -4,7 +4,7 @@ A LaTeX-based resume system that supports multiple specialized resume variants f
 
 ## Resume Variants
 
-- **Machine Learning / AI Resume** (`resumeml.tex`) - Focused on ML engineering, AI systems, and data science roles
+- **AI / ML Engineering Resume** (`resumeai.tex`) - Focused on LLM applications, RAG pipelines, agentic workflows, ML inference systems, and backend infrastructure
 - **Software Developer Resume** (`resumesoftware.tex`) - Focused on full-stack development and software engineering roles
 
 ## Setup
@@ -37,7 +37,7 @@ make all
 
 Compile individual resumes:
 ```bash
-make resumeml.pdf      # ML/AI focused resume
+make resumeai.pdf      # AI/ML engineering focused resume
 make resumesoftware.pdf # Software developer resume
 ```
 
@@ -53,7 +53,7 @@ The `index.html` file provides a web interface to access both resume versions. S
 
 ## File Structure
 
-- `resumeml.tex` - Machine Learning/AI focused resume
+- `resumeai.tex` - AI/ML engineering focused resume
 - `resumesoftware.tex` - Software developer focused resume  
 - `Makefile` - Build configuration
 - `index.html` - Web interface for resume selection
